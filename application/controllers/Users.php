@@ -54,8 +54,8 @@ class Users extends CI_Controller {
 
         $jsonArrayResponse = json_decode($phoneList);
 
-        var_dump($jsonArrayResponse);
-        exit();
+        // var_dump($jsonArrayResponse);
+        // exit();
 
         $this->load->view('users/index', $data);
     }

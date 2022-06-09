@@ -23,7 +23,7 @@
                         <tbody>
                             <tr>
                                 <td><?php echo $active_users ?></td>
-                                <td></td>
+                                <td><?php echo $active_users_with_active_products ?></td>
                             </tr>
                         </tbody>
                     </table>

@@ -42,6 +42,21 @@ class Users extends CI_Controller {
         
         $data['user_wise_total'] = $userWiseTotalPrice; 
 
+        // Exchange Rate
+
+        $cURLConnection = curl_init();
+
+        curl_setopt($cURLConnection, CURLOPT_URL, 'https://api.exchangeratesapi.io/v1/latest?access_key=11JNTCL8K5lmCc4rgAJhRnNFW0P0hR0Q&base=EUR&symbols=USD,RON');
+        curl_setopt($cURLConnection, CURLOPT_RETURNTRANSFER, true);
+
+        $phoneList = curl_exec($cURLConnection);
+        curl_close($cURLConnection);
+
+        $jsonArrayResponse = json_decode($phoneList);
+
+        var_dump($jsonArrayResponse);
+        exit();
+
         $this->load->view('users/index', $data);
     }
 }

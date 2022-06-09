@@ -30,8 +30,10 @@ class User_product_model extends CI_Model {
     }
 
     public function getSummerizedQuantityAndPriceValue(){ 
-        $this->db->select('SUM(quantity * price) as summerized_total');
+        $this->db->select('SUM(user_has_product.quantity * user_has_product.price) as summerized_total');
         $this->db->from('user_has_product');
+		$this->db->join('products', 'products.id = user_has_product.product_id');
+		$this->db->where('products.status', 1); 
         $query = $this->db->get();
         return $query->row()->summerized_total;
     }

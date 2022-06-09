@@ -45,6 +45,17 @@
                         </tbody>
                     </table>
                 </div>
+
+				<div class="col-12">
+					<h2>Exchange Rate: </h2>
+
+					1 EUR = 
+					<?php 
+						foreach ($exchange_rate_data as $key => $value) {
+							echo $value.' '.$key . '<br>';
+						}
+					?>
+				</div>
             </div>
         </div>
     </body>

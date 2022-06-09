@@ -26,7 +26,11 @@ class Users extends CI_Controller {
 
         // Active Products With No User
         $activeProductsWithNoUser = $this->Product_model->productWithNoUser();
-        $data['active_products_with_no_user'] = $activeProductsWithNoUser; 
+        $data['active_products_with_no_user'] = $activeProductsWithNoUser;  
+
+        // Count Active Products Selected 
+        $selectedActiveProductsQuantity = $this->User_product_model->countSelectedActiveProducts(); 
+        $data['selected_active_products_count'] = $selectedActiveProductsQuantity; 
         $this->load->view('users/index', $data);
     }
 }

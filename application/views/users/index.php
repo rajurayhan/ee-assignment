@@ -20,6 +20,7 @@
                                 <th>Active Users With Products</th>
                                 <th>Active Products</th>
                                 <th>Active Products With No User</th>
+                                <th>Selected Active Products Quantity</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -28,6 +29,7 @@
                                 <td><?php echo $active_users_with_active_products ?></td>
                                 <td><?php echo $active_products ?></td>
                                 <td><?php echo $active_products_with_no_user ?></td>
+                                <td><?php echo $selected_active_products_count ?></td>
                             </tr>
                         </tbody>
                     </table>

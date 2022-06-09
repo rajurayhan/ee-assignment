@@ -19,6 +19,7 @@
                                 <th>Active Users</th>
                                 <th>Active Users With Products</th>
                                 <th>Active Products</th>
+                                <th>Active Products With No User</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -26,6 +27,7 @@
                                 <td><?php echo $active_users ?></td>
                                 <td><?php echo $active_users_with_active_products ?></td>
                                 <td><?php echo $active_products ?></td>
+                                <td><?php echo $active_products_with_no_user ?></td>
                             </tr>
                         </tbody>
                     </table>

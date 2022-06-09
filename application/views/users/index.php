@@ -21,6 +21,7 @@
                                 <th>Active Products</th>
                                 <th>Active Products With No User</th>
                                 <th>Selected Active Products Quantity</th>
+                                <th>Summerized Total Price</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -30,6 +31,8 @@
                                 <td><?php echo $active_products ?></td>
                                 <td><?php echo $active_products_with_no_user ?></td>
                                 <td><?php echo $selected_active_products_count ?></td>
+                                <td><?php echo $summerized_total_price ?></td>
+                                
                             </tr>
                         </tbody>
                     </table>

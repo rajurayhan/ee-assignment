@@ -35,4 +35,16 @@ class User_product_model extends CI_Model {
         $query = $this->db->get();
         return $query->row()->summerized_total;
     }
+
+    public function userWiseTotalPrice(){
+        $this->db->select('users.name as name, SUM(price*quantity) as total_price');
+        $this->db->from('user_has_product'); 
+        $this->db->join('users', 'users.id = user_has_product.user_id');
+        $this->db->where('users.status', 1);
+        $this->db->where('users.email_verified_at is NOT NULL');
+        $this->db->group_by('users.id');
+        $query = $this->db->get()->result_array();
+
+        return $query;
+    }
 }

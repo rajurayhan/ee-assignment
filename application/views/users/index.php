@@ -22,6 +22,7 @@
                                 <th>Active Products With No User</th>
                                 <th>Selected Active Products Quantity</th>
                                 <th>Summerized Total Price</th>
+                                <th>User Wise Price Total</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -32,6 +33,13 @@
                                 <td><?php echo $active_products_with_no_user ?></td>
                                 <td><?php echo $selected_active_products_count ?></td>
                                 <td><?php echo $summerized_total_price ?></td>
+                                <td><?php 
+                                    echo '<ul>';
+                                    foreach ($user_wise_total as $key => $user_total) {
+                                        echo "<li>Name: ".$user_total['name']." - ".$user_total['total_price']."</li>";
+                                    }
+                                    echo '</ul>';
+                                ?></td>
                                 
                             </tr>
                         </tbody>

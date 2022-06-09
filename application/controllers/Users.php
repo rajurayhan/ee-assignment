@@ -36,6 +36,12 @@ class Users extends CI_Controller {
         $summerizedQuantityAndPriceValue = $this->User_product_model->getSummerizedQuantityAndPriceValue();
         $data['summerized_total_price'] = $summerizedQuantityAndPriceValue; 
 
+        // Userwise total
+
+        $userWiseTotalPrice = $this->User_product_model->userWiseTotalPrice();
+        
+        $data['user_wise_total'] = $userWiseTotalPrice; 
+
         $this->load->view('users/index', $data);
     }
 }

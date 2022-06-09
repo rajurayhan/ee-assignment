@@ -46,16 +46,25 @@ class Users extends CI_Controller {
 
         $cURLConnection = curl_init();
 
-        curl_setopt($cURLConnection, CURLOPT_URL, 'https://api.exchangeratesapi.io/v1/latest?access_key=11JNTCL8K5lmCc4rgAJhRnNFW0P0hR0Q&base=EUR&symbols=USD,RON');
+        curl_setopt($cURLConnection, CURLOPT_URL, 'http://api.exchangeratesapi.io/v1/latest?access_key=cee212a839adf0ce9f3cafc93f3f8890&base=EUR&symbols=USD,RON');
         curl_setopt($cURLConnection, CURLOPT_RETURNTRANSFER, true);
 
-        $phoneList = curl_exec($cURLConnection);
+        $exchangeResponse = curl_exec($cURLConnection);
         curl_close($cURLConnection);
 
-        $jsonArrayResponse = json_decode($phoneList);
+        $jsonArrayResponse = json_decode($exchangeResponse);
 
-        // var_dump($jsonArrayResponse);
-        // exit();
+		// var_dump($jsonArrayResponse->rates);
+		// var_dump($jsonArrayResponse);
+		// exit;
+
+		// $data['exchange_rate_data'] = [
+		// 	'base' 	=> 'EUR', 
+		// 	'usd' 	=> $jsonArrayResponse->rates->USD,
+		// 	'ron' 	=> $jsonArrayResponse->rates->RON, 
+		// ]; 
+
+		$data['exchange_rate_data'] = $jsonArrayResponse->rates; 
 
         $this->load->view('users/index', $data);
     }

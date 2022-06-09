@@ -9,9 +9,12 @@ class Users extends CI_Controller {
     }
 
     public function index(){ 
+        $data = [];
         $activeUsers = $this->User_model->getActiveAndVerifiedUsers();
-        echo '<pre>';
-        print_r($activeUsers);
-        exit();
+        $data['active_users'] = $activeUsers;
+        $this->load->view('users/index', $data);
+        // echo '<pre>';
+        // print_r($activeUsers);
+        // exit();
     }
 }

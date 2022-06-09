@@ -9,6 +9,6 @@ class User_model extends CI_Model {
     
     public function getActiveAndVerifiedUsers(){
         $users = $this->db->where('email_verified_at is NOT NULL')->get_where('users', ['status' => 1]);
-        return $users;
+        return $users->num_rows();
     }
 }

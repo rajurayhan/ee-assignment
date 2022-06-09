@@ -31,6 +31,11 @@ class Users extends CI_Controller {
         // Count Active Products Selected 
         $selectedActiveProductsQuantity = $this->User_product_model->countSelectedActiveProducts(); 
         $data['selected_active_products_count'] = $selectedActiveProductsQuantity; 
+
+        // Sumerized Data 
+        $summerizedQuantityAndPriceValue = $this->User_product_model->getSummerizedQuantityAndPriceValue();
+        $data['summerized_total_price'] = $summerizedQuantityAndPriceValue; 
+
         $this->load->view('users/index', $data);
     }
 }

@@ -18,12 +18,14 @@
                             <tr>
                                 <th>Active Users</th>
                                 <th>Active Users With Products</th>
+                                <th>Active Products</th>
                             </tr>
                         </thead>
                         <tbody>
                             <tr>
                                 <td><?php echo $active_users ?></td>
                                 <td><?php echo $active_users_with_active_products ?></td>
+                                <td><?php echo $active_products ?></td>
                             </tr>
                         </tbody>
                     </table>

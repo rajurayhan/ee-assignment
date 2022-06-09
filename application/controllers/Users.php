@@ -6,6 +6,7 @@ class Users extends CI_Controller {
         parent::_construct(); 
         $this->load->model('User_model');
         $this->load->model('User_product_model');
+        $this->load->model('Product_model');        
     }
 
     public function index(){ 
@@ -18,6 +19,10 @@ class Users extends CI_Controller {
         // Active Users With Active Products
         $activeUsersWithProducts = $this->User_product_model->getActiveAndVerifiedUsersWithActiveProducts();
         $data['active_users_with_active_products'] = $activeUsersWithProducts;
+
+        // Active Products
+        $activeProducts = $this->Product_model->getActiveProducts();
+        $data['active_products'] = $activeProducts; 
         $this->load->view('users/index', $data);
     }
 }

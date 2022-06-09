@@ -19,4 +19,14 @@ class User_product_model extends CI_Model {
         $query = $this->db->get();
         return $query->num_rows();
     }
+
+    public function countSelectedActiveProducts(){
+        // $this->db->select('SUM(user_has_product.quantity)');
+        $this->db->select_sum('user_has_product.quantity','quantity');
+        $this->db->from('user_has_product');
+        $this->db->join('products', 'products.id = user_has_product.product_id');
+        $this->db->where('products.status', 1); 
+        $query = $this->db->get();
+        return $query->row()->quantity;
+    }
 }
